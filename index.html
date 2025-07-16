@@ -173,16 +173,16 @@
           elegantly delivered to your doorstep
         </p>
         <p>Tap, Taste, Enjoy.</p>
-        <a href="landingpage.html">
-          <button
-            type="button"
-            class="button"
-            onclick="window.location.href='landingpage.html'"
-          >
-            Get Started
-          </button>
+          <button type="button"class="button" id="getStartedBtn">Get Started</button>
         </a>
       </div>
     </section>
+
+
+ <script>
+  document.getElementById('getStartedBtn').addEventListener('click', function() {
+    window.location.href = 'landingpage.html';
+  });
+</script>
   </body>
 </html>
