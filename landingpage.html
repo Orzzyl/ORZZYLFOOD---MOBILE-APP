@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Orzzy Food Mobile App</title>
   <style>
-    body {
+    * {
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+    }
+
+    .section-1 {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-        overflow: hidden;
-       font-family: "poppins", sans-serif;
-    }
-.image-container{
-     display: flex;
-       justify-content: center;
-        align-items: center;
-}
-.image-container img {
-      width: 100%;
+      text-align: center;
+      padding: 20px;
+      gap: 20px;
       max-width: 400px;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 300px;
       animation: float 3s ease-in-out infinite;
     }
 
@@ -32,66 +49,59 @@
       50%  { transform: translateY(-15px); }
       100% { transform: translateY(0); }
     }
-    .section-1{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 10px;
-    }
-    .section-1 h1{
-        font-size: 1.4rem;
-        text-align: center;
-        margin: 0;
-        padding: 10px;
-        color: red;
-    }
-    .section-1 p{
-        font-size: 0.8rem;
-        text-align: center;
-        margin: 0;
 
+    h1 {
+      font-size: 1.5rem;
+      color: red;
+      margin: 0;
     }
-    .text{
-      display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
+    p {
+      font-size: 0.9rem;
+      color: #333;
+      padding: 0 10px;
+      line-height: 1.5;
     }
-    .button-container{
-         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 30px;
+
+    .button-container {
+      padding-top: 10px;
     }
-    .text button{
-        width: 230px;
-        height: 40px;
-        border-radius: 30px;
-        border: none;
-        color: white;
-        background: red;
-        padding: 10px 15px;
+
+    button {
+      width: 230px;
+      height: 40px;
+      border-radius: 30px;
+      border: none;
+      color: white;
+      background: red;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: darkred;
     }
   </style>
 </head>
 <body>
-    <section class="section-1">
+  <section class="section-1">
     <div class="image-container">
-         <img src="images/delivery.png" alt="Food Ordering Illustration">
+      <img src="images/delivery.png" alt="Food Ordering Illustration">
     </div>
-    <div class="text">
     <h1>Dine Like Royalty</h1>
-    <p>Why settle for ordinary when you deserve the finest?
-Delicious gourmet meals prepared with care - just a tap away. 
-Order now and treat yourself to the luxury you crave</p>
-   <div class="button-container"> <button type="button">Next</button></div>
+    <p>
+      Why settle for ordinary when you deserve the finest?<br>
+      Delicious gourmet meals prepared with care — just a tap away.<br>
+      Order now and treat yourself to the luxury you crave.
+    </p>
+    <div class="button-container">
+      <button type="button">Next</button>
     </div>
-    </section>
+  </section>
 </body>
 </html>
+
 
 
 
