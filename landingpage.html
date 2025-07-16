@@ -15,13 +15,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
       font-family: "Poppins", sans-serif;
-      background-color: #fff;
+      background-color: #1c1c1c;
+      color: white;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .section-1 {
-      display: flex;
+    .slide {
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -29,12 +31,17 @@
       padding: 20px;
       gap: 20px;
       max-width: 400px;
+      height: 100%;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
-    .image-container {
+    .slide.active {
       display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .image-container img {
@@ -52,14 +59,31 @@
     h1 {
       font-size: 1.5rem;
       color: red;
-      margin: 0;
     }
 
     p {
-      font-size: 0.8rem;
-      color: #333;
+      font-size: 0.85rem;
       padding: 0 10px;
       width: 300px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: red;
     }
 
     .button-container {
@@ -81,25 +105,101 @@
     button:hover {
       background: darkred;
     }
+    .img-3{
+        width: 400px;
+    }
   </style>
 </head>
 <body>
-  <section class="section-1">
+
+  <!-- Slide 1 -->
+  <section class="slide active">
     <div class="image-container">
       <img src="images/delivery.png" alt="Food Ordering Illustration">
     </div>
     <h1>Dine Like Royalty</h1>
     <p>
       Why settle for ordinary when you deserve the finest?<br>
-      Delicious gourmet meals prepared with care — just a tap away.<br>
-      Order now and treat yourself to the luxury you crave.
+      Gourmet meals prepared with care — just a tap away.
     </p>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
     <div class="button-container">
-      <button type="button">Next</button>
+      <button class="next-btn">Next</button>
     </div>
   </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <div class="image-container">
+      <img src="images/easypayment.png" alt="Easy Payment">
+    </div>
+    <h1>Easy & Secure Payment</h1>
+    <p>
+      Pay with card, wallet or bank — fast and secure.<br>
+      Checkout in seconds with total peace of mind.
+    </p>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="button-container">
+      <button class="next-btn">Next</button>
+    </div>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+    <div class="image-container">
+      <img src="images/person-doing-delivery-activities-pack.png" alt="Fast Delivery" class="img-1">
+    </div>
+    <h1>Fast Delivery</h1>
+    <p>
+      Get your meals hot and fresh — right at your door.<br>
+      No delays, just delicious speed.
+    </p>
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+    </div>
+    <div class="button-container">
+      <button class="next-btn">Next</button>
+    </div>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const buttons = document.querySelectorAll('.next-btn');
+    let currentSlide = 0;
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Deactivate current slide and dot
+        slides[currentSlide].classList.remove('active');
+        const currentDots = slides[currentSlide].querySelectorAll('.dot');
+        currentDots[currentSlide].classList.remove('active');
+
+        currentSlide++;
+
+        if (currentSlide < slides.length) {
+          slides[currentSlide].classList.add('active');
+          const newDots = slides[currentSlide].querySelectorAll('.dot');
+          newDots[currentSlide].classList.add('active');
+        } else {
+          window.location.href = 'login.html';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
+
 
 
 
