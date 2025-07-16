@@ -1,397 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orzzyl Food Mobile App</title>
-    <link rel="stylesheet" href="login.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "poppins", sans-serif;
-      }
-      body {
-        height: 100vh;
-        background-color: #1c1c1c;
-        background-repeat: no-repeat;
-        object-fit: cover;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        margin: 0;
-        padding-top: 10px;
-        overflow: hidden;
-      }
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orzzyl Food Mobile App</title>
+  <link rel="stylesheet" href="login.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      height: 100vh;
+      background-color: #1c1c1c;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow: hidden;
+      padding-top: 10px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 40px 20px 30px 20px;
+      height: 620px;
+      width: 350px;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.05);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+    }
+    .box-login,
+    .box-register,
+    .box-forgot {
+      position: absolute;
+      width: 85%;
+      transition: 0.5s ease-in-out;
+    }
+    .box-login {
+      left: 27px;
+    }
+    .box-register {
+      right: -350px;
+    }
+    .box-forgot {
+      left: 27px;
+      display: none;
+    }
+    .top-header {
+      text-align: center;
+      margin: 30px 0;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .top-header h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .input-group {
+      width: 100%;
+    }
+    .input-field {
+      margin: 12px 0;
+      position: relative;
+    }
+    .input-box {
+      width: 100%;
+      height: 50px;
+      font-size: 15px;
+      color: #040404;
+      border: none;
+      border-radius: 10px;
+      padding: 7px 45px 0 20px;
+      background: white;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      outline: none;
+    }
+    .input-field label {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      font-size: 15px;
+      transition: 0.3s ease-in-out;
+    }
+    .input-box:focus ~ label,
+    .input-box:valid ~ label {
+      top: 2px;
+      font-size: 10px;
+      color: #c12828;
+      font-weight: 500;
+    }
+    .remember {
+      display: flex;
+      font-size: 13px;
+      margin: 12px 0 30px 0;
+      color: white;
+    }
+    .check {
+      margin-right: 8px;
+      width: 14px;
+    }
+    .input-submit {
+      width: 100%;
+      height: 50px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      background: red;
+      color: #fff;
+      box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.144);
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    .input-submit:hover {
+      background: black;
+      box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32);
+    }
+    .forgot {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 40px;
+      color: white;
+    }
+    .forgot a {
+      text-decoration: none;
+      color: red;
+    }
+    .account {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    .switch {
+      display: flex;
+      position: absolute;
+      bottom: 20px;
+      left: 25px;
+      width: 85%;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.16);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .switch a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+      text-decoration: none;
+      width: 50%;
+      height: 50px;
+      z-index: 10;
+    }
+    #btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 145px;
+      height: 50px;
+      background: #cccccd;
+      border-radius: 10px;
+      transition: 0.5s ease-in-out;
+    }
+    .eye-area {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+    }
+    .eye-box i {
+      position: absolute;
+      color: #444;
+      cursor: pointer;
+    }
+    #eye,
+    #eye-2 {
+      opacity: 1;
+    }
+    #eye-slash,
+    #eye-slash-2 {
+      opacity: 0;
+    }
+    .logo {
+      width: 150px;
+    }
+    .glad {
+      color: white;
+    }
+    @media only screen and (max-width: 576px) {
       .box {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        padding: 40px 20px 30px 20px;
-        height: 620px;
-        width: 350px;
-        border-radius: 30px;
-        background-color: rgba(255, 220, 220, -0.5);
-        -webkit-backdrop-filter: blur(15px);
-        backdrop-filter: blur(15px);
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        overflow: hidden;
-      }
-      .box-login,
-      .box-register {
-        position: absolute;
-        width: 85%;
-        transition: 0.5s ease-in-out;
-      }
-      .box-login {
-        left: 27px;
-      }
-      .box-register {
-        right: -350px;
-      }
-      .top-header {
-        text-align: center;
-        margin: 30px 0;
-        color: white;
-      }
-      .top-header h3 {
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-      .input-group {
-        width: 100%;
-      }
-      .input-field {
-        margin: 12px 0;
-        position: relative;
-      }
-      .input-box {
-        width: 100%;
-        height: 50px;
-        font-size: 15px;
-        color: #040404;
-        border: none;
-        border-radius: 10px;
-        padding: 7px 45px 0 20px;
-        background: white;
-        -webkit-backdrop-filter: blur(2px);
-        backdrop-filter: blur(2px);
-        outline: none;
-      }
-      .input-field label {
-        position: absolute;
-        left: 20px;
-        top: 15px;
-        font-size: 15px;
-        transition: 0.3s ease-in-out;
-      }
-      .input-box:focus ~ label,
-      .input-box:valid ~ label {
-        top: 2px;
-        font-size: 10px;
-        color: #c12828;
-        font-weight: 500;
-      }
-      .remember {
-        display: flex;
-        font-size: 13px;
-        margin: 12px 0 30px 0;
-        color: white;
-      }
-      .check {
-        margin-right: 8px;
-        width: 14px;
-      }
-      .input-submit {
-        width: 100%;
-        height: 50px;
-        font-size: 15px;
-        font-weight: 500;
-        border: none;
-        border-radius: 10px;
-        background: red;
-        color: #fff;
-        box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.144);
-        cursor: pointer;
-        transition: 0.4s;
-      }
-      .input-submit:hover {
-        background: black;
-        box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32);
-      }
-      .forgot {
-        text-align: center;
-        font-size: 13px;
-        font-weight: 500;
-        margin-top: 40px;
-        color: white;
-      }
-      .forgot a {
-        text-decoration: none;
-        color: red;
-      }
-      .account {
-        text-align: center;
-        font-size: 13px;
-        font-weight: 500;
-        margin-top: 10px;
-      }
-      .switch {
-        display: flex;
-        position: absolute;
-        bottom: 20px;
-        left: 25px;
-        width: 85%;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.16);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-      }
-      .switch a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 14px;
-        font-weight: 500;
-        color: #000;
-        text-decoration: none;
-        width: 50%;
-        height: 50px;
-        border-radius: 10px;
-        z-index: 10;
+        margin: 0 5px;
       }
       #btn {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        width: 145px;
-        height: 50px;
-        background: #cccccd;
-        border-radius: 10px;
-        box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.1);
-        transition: 0.5s ease-in-out;
+        width: 153px;
       }
-      .eye-area {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-      }
-      .eye-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-      i {
-        position: absolute;
-        color: #444444;
-        cursor: pointer;
-      }
-      #eye,
-      #eye-2 {
-        opacity: 1;
-      }
-      #eye-slash,
-      #eye-slash-2 {
-        opacity: 0;
-      }
-      .logo{
-        width: 150px;
-      }
-      .glad{
-        color: white;
-      }
-      @media only screen and (max-width: 576px) {
-        .box {
-          margin: 0 5px;
-        }
-        #btn {
-          position: absolute;
-          width: 153px;
-        }
-        .input-submit:hover {
-          background: rgb(235, 142, 142);
-          box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32);
-          color: white;
-        }
-        .forgot{
-          color: white;
-        }
-        .forgot a{
-          color: red;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="box">
-        <!-- Login Form -->
-        <div class="box-login" id="login">
-          <div class="top-header">
-            <div class="logo-container">
-                <img src="icons/orzzyl food logo- red.png" alt="orzzyl food logo" class="logo">
-            </div>
-            <small class="glad">Glad to have you here! Please login to your account.</small>
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <!-- Login -->
+      <div class="box-login" id="login">
+        <div class="top-header">
+          <img src="icons/orzzyl food logo- red.png" alt="logo" class="logo" />
+          <small class="glad">Glad to have you here! Please login to your account.</small>
+        </div>
+        <form class="input-group">
+          <div class="input-field">
+            <input type="text" class="input-box" id="logEmail" required />
+            <label for="logEmail">Email Address</label>
           </div>
-          <form class="input-group">
-            <div class="input-field">
-              <input type="text" class="input-box" id="logEmail" required />
-              <label for="logEmail" class="input-label">Email Address</label>
-            </div>
-            <div class="input-field">
-              <input
-                type="password"
-                class="input-box"
-                id="logPassword"
-                required
-              />
-              <label for="logPassword" class="input-label">Password</label>
-              <div class="eye-area">
-                <div class="eye-box" onclick="myLogPassword()">
-                  <i class="fa-regular fa-eye" id="eye"></i>
-                  <i class="fa-regular fa-eye-slash" id="eye-slash"></i>
-                </div>
+          <div class="input-field">
+            <input type="password" class="input-box" id="logPassword" required />
+            <label for="logPassword">Password</label>
+            <div class="eye-area">
+              <div class="eye-box" onclick="myLogPassword()">
+                <i class="fa-regular fa-eye" id="eye"></i>
+                <i class="fa-regular fa-eye-slash" id="eye-slash"></i>
               </div>
             </div>
-            <div class="remember">
-              <input type="checkbox" id="formCheck" class="check" />
-              <label for="formCheck" class="check-label">Remember me</label>
-            </div>
-            <div class="input-field">
-              <button
-                type="submit"
-                class="input-submit"
-                id="login-button"
-                form=""
-              >
-                Log In
-              </button>
-            </div>
-            <div class="forgot">
-              <a href="" id="reset-password" class="forgot-1">Forgot Password</a>
-              <p class="account">
-                Don't have an account?
-                <a class="register" onclick="register()">Register</a>
-              </p>
-            </div>
-          </form>
-        </div>
-        <!-- Register Form -->
-        <div class="box-register" id="register">
-          <div class="top-header">
-            <h3>Sign Up</h3>
-            <small>Create an account</small>
           </div>
-          <form class="input-group">
-            <div class="input-field">
-              <input type="text" class="input-box" id="regUsername" required />
-              <label for="regUsername">Username</label>
-            </div>
-            <div class="input-field">
-              <input type="text" class="input-box" id="regEmail" required />
-              <label for="regEmail">Email address</label>
-            </div>
-            <div class="input-field">
-              <input
-                type="password"
-                class="input-box"
-                id="regPassword"
-                required
-              />
-              <label for="regPassword">Password</label>
-              <div class="eye-area">
-                <div class="eye-box" onclick="myRegPassword()">
-                  <i class="fa-regular fa-eye" id="eye-2"></i>
-                  <i class="fa-regular fa-eye-slash" id="eye-slash-2"></i>
-                </div>
+          <div class="remember">
+            <input type="checkbox" class="check" id="formCheck" />
+            <label for="formCheck">Remember me</label>
+          </div>
+          <div class="input-field">
+            <button type="submit" class="input-submit">Log In</button>
+          </div>
+          <div class="forgot">
+            <a href="#" id="reset-password">Forgot Password</a>
+            <p class="account">Don't have an account? <a href="#" onclick="register()">Register</a></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Register -->
+      <div class="box-register" id="register">
+        <div class="top-header">
+          <h3>Sign Up</h3>
+          <small>Create an account</small>
+        </div>
+        <form class="input-group">
+          <div class="input-field">
+            <input type="text" class="input-box" id="regUsername" required />
+            <label for="regUsername">Username</label>
+          </div>
+          <div class="input-field">
+            <input type="email" class="input-box" id="regEmail" required />
+            <label for="regEmail">Email Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" class="input-box" id="regPassword" required />
+            <label for="regPassword">Password</label>
+            <div class="eye-area">
+              <div class="eye-box" onclick="myRegPassword()">
+                <i class="fa-regular fa-eye" id="eye-2"></i>
+                <i class="fa-regular fa-eye-slash" id="eye-slash-2"></i>
               </div>
             </div>
-            <div class="remember">
-              <input type="checkbox" id="formCheck2" class="check" />
-              <label for="formCheck2">Remember Me</label>
-            </div>
-            <div class="input-field">
-              <button
-                type="submit"
-                class="input-submit"
-                id="register-button"
-                required
-              >
-                Sign Up
-              </button>
-            </div>
-          </form>
+          </div>
+          <div class="remember">
+            <input type="checkbox" class="check" id="formCheck2" />
+            <label for="formCheck2">Remember Me</label>
+          </div>
+          <div class="input-field">
+            <button type="submit" class="input-submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Forgot Password -->
+      <div class="box-forgot" id="forgot">
+        <div class="top-header">
+          <h3>Forgot Password</h3>
+          <small>We'll send you a reset link</small>
         </div>
-        <div class="switch">
-          <a href="#" class="login active" onclick="login()">Login</a>
-          <a href="#" class="register" onclick="register()">Register</a>
-          <div class="btn-active" id="btn"></div>
-        </div>
+        <form class="input-group">
+          <div class="input-field">
+            <input type="email" class="input-box" id="forgotEmail" required />
+            <label for="forgotEmail">Email Address</label>
+          </div>
+          <div class="input-field">
+            <button type="submit" class="input-submit">Send Reset Link</button>
+          </div>
+          <div class="forgot">
+            <a href="#" onclick="backToLogin()">Back to Login</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Toggle -->
+      <div class="switch">
+        <a href="#" class="login active" onclick="login()">Login</a>
+        <a href="#" class="register" onclick="register()">Register</a>
+        <div class="btn-active" id="btn"></div>
       </div>
     </div>
-    <script>
-      // Toggle between login and register forms
-      var x = document.getElementById("login");
-      var y = document.getElementById("register");
-      var z = document.getElementById("btn");
-      function login() {
-        x.style.left = "27px";
-        y.style.right = "-350px";
-        z.style.left = "0px";
+  </div>
+
+  <script>
+    const x = document.getElementById("login");
+    const y = document.getElementById("register");
+    const z = document.getElementById("btn");
+    const forgot = document.getElementById("forgot");
+
+    function login() {
+      x.style.display = "block";
+      y.style.display = "block";
+      forgot.style.display = "none";
+      x.style.left = "27px";
+      y.style.right = "-350px";
+      z.style.left = "0px";
+    }
+
+    function register() {
+      x.style.left = "-350px";
+      y.style.right = "25px";
+      z.style.left = "150px";
+      forgot.style.display = "none";
+    }
+
+    function backToLogin() {
+      forgot.style.display = "none";
+      x.style.display = "block";
+      x.style.left = "27px";
+      y.style.display = "block";
+      y.style.right = "-350px";
+      z.style.left = "0px";
+    }
+
+    function myLogPassword() {
+      const a = document.getElementById("logPassword");
+      const b = document.getElementById("eye");
+      const c = document.getElementById("eye-slash");
+      if (a.type === "password") {
+        a.type = "text";
+        b.style.opacity = "0";
+        c.style.opacity = "1";
+      } else {
+        a.type = "password";
+        b.style.opacity = "1";
+        c.style.opacity = "0";
       }
-      function register() {
-        x.style.left = "-350px";
-        y.style.right = "25px";
-        z.style.left = "150px";
+    }
+
+    function myRegPassword() {
+      const d = document.getElementById("regPassword");
+      const b = document.getElementById("eye-2");
+      const c = document.getElementById("eye-slash-2");
+      if (d.type === "password") {
+        d.type = "text";
+        b.style.opacity = "0";
+        c.style.opacity = "1";
+      } else {
+        d.type = "password";
+        b.style.opacity = "1";
+        c.style.opacity = "0";
       }
-      // View Password codes
-      function myLogPassword() {
-        var a = document.getElementById("logPassword");
-        var b = document.getElementById("eye");
-        var c = document.getElementById("eye-slash");
-        if (a.type === "password") {
-          a.type = "text";
-          b.style.opacity = "0";
-          c.style.opacity = "1";
-        } else {
-          a.type = "password";
-          b.style.opacity = "1";
-          c.style.opacity = "0";
-        }
-      }
-      function myRegPassword() {
-        var d = document.getElementById("regPassword");
-        var b = document.getElementById("eye-2");
-        var c = document.getElementById("eye-slash-2");
-        if (d.type === "password") {
-          d.type = "text";
-          b.style.opacity = "0";
-          c.style.opacity = "1";
-        } else {
-          d.type = "password";
-          b.style.opacity = "1";
-          c.style.opacity = "0";
-        }
-      }
-    </script>
-    <script type="module" src="login.js"></script>
-  </body>
+    }
+
+    document.getElementById("reset-password").addEventListener("click", function (e) {
+      e.preventDefault();
+      x.style.display = "none";
+      y.style.display = "none";
+      forgot.style.display = "block";
+    });
+  </script>
+</body>
 </html>
