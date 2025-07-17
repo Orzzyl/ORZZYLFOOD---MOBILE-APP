@@ -55,12 +55,14 @@
       width: 320px;
       height: 180px;
       overflow: hidden;
+      margin: 0 auto;
     }
 
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease;
-      width: 200%;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 640px;
+      height: 100%;
     }
 
     .overall-sales-container,
@@ -71,8 +73,10 @@
       justify-content: center;
       align-items: center;
       padding: 10px;
-      width: 300px;
+      width: 290px;
       flex-shrink: 0;
+      margin: 0 10px;
+      box-sizing: border-box;
     }
 
     .overall-sales-container {
@@ -80,18 +84,18 @@
       height: 160px;
     }
 
+    .overall-sales-container-2 {
+      background: white;
+      color: black;
+      height: 160px;
+    }
+
     .overall-sales-container img {
       height: 110px;
     }
 
-    .overall-sales-container-2 {
-      background: white;
-      color: black;
-      height: 150px;
-    }
-
     .overall-sales-container-2 img {
-      height: 120px;
+      height: 110px;
     }
 
     .sales-container p,
@@ -132,16 +136,19 @@
     }
 
     .indicator {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background-color: #666;
+      background-color: #444;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.4s ease;
+      opacity: 0.6;
     }
 
     .indicator.active {
-      background-color: red;
+      background-color: #ff6b6b;
+      opacity: 1;
+      transform: scale(1.2);
     }
 
     .icons-container {
@@ -163,6 +170,25 @@
       align-items: center;
       gap: 5px;
     }
+    @media screen and (max-width: 500px){
+        .overall-sales-container-2{
+            width: 300px;
+        }
+            .overall-sales-container,
+    .overall-sales-container-2 {
+        width: 300px;
+    }
+    }
+      @media screen and (max-width: 500px){
+        .overall-sales-container-2{
+            width: 290px;
+        }
+            .overall-sales-container,
+    .overall-sales-container-2 {
+        width: 290px;
+    }
+    }
+     
   </style>
 </head>
 <body>
@@ -265,11 +291,11 @@
         });
       });
       
-      // Auto-advance carousel every 4 seconds
+      // Auto-advance carousel every 6 seconds
       setInterval(() => {
         currentSlide = (currentSlide + 1) % totalSlides;
         updateCarousel();
-      }, 4000);
+      }, 6000);
       
       // Touch/swipe functionality for mobile
       let startX = 0;
@@ -292,7 +318,7 @@
         
         const diffX = startX - currentX;
         
-        if (Math.abs(diffX) > 50) { // Minimum swipe distance
+        if (Math.abs(diffX) > 80) { // Increased swipe sensitivity
           if (diffX > 0 && currentSlide < totalSlides - 1) {
             currentSlide++;
           } else if (diffX < 0 && currentSlide > 0) {
@@ -305,4 +331,3 @@
   </script>
 </body>
 </html>
-
