@@ -255,7 +255,7 @@
             <label for="formCheck">Remember me</label>
           </div>
           <div class="input-field">
-            <button type="submit" class="input-submit">Log In</button>
+            <button type="submit" class="input-submit" id="login-button">Log In</button>
           </div>
           <div class="forgot">
             <a href="#" id="reset-password">Forgot Password</a>
@@ -294,7 +294,7 @@
             <label for="formCheck2">Remember Me</label>
           </div>
           <div class="input-field">
-            <button type="submit" class="input-submit">Sign Up</button>
+            <button type="submit" class="input-submit" id="register-button">Sign Up</button>
           </div>
         </form>
       </div>
@@ -305,13 +305,13 @@
           <h3>Forgot Password</h3>
           <small>We'll send you a reset link</small>
         </div>
-        <form class="input-group">
+        <form class="input-group" id="forgot-form">
           <div class="input-field">
             <input type="email" class="input-box" id="forgotEmail" required />
             <label for="forgotEmail">Email Address</label>
           </div>
           <div class="input-field">
-            <button type="submit" class="input-submit">Send Reset Link</button>
+            <button type="submit" class="input-submit" >Send Reset Link</button>
           </div>
           <div class="forgot">
             <a href="#" onclick="backToLogin()">Back to Login</a>
@@ -395,6 +395,8 @@
       y.style.display = "none";
       forgot.style.display = "block";
     });
+
   </script>
+  <script type="module" src="login.js"></script>
 </body>
 </html>
