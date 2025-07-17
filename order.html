@@ -10,18 +10,23 @@
             font-size: 0.8rem;
             color: white;
         }
+        .intro-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
         .intro-container h2{
             font-size: 0.8rem;
             display: flex;
-            flex-direction: column;
-            text-align: center;
+            flex-direction: row;
             margin: 0;
         }
         #username{
             font-size: 0.8rem;
         }
         .image-1{
-            width: 140px;
+            width: 100px;
         }
         .icons-container{
             background-color: red;
@@ -39,10 +44,12 @@
 
     <section class="intro-container">
         <img src="icons/orzzyl food logo- red.png" alt="orzzyl food logo" class="image-1">
+        <div class="greeting"><h2>Welcome, <span id="username"> </span></h2></div>
+         
     </section>
 
     <section>
- <div class="greeting"><h2>Welcome, <span id="username"></span></h2></div>
+
  
     </section>
 
